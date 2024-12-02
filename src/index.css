@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'UthmanicHafs';
+  src: url('https://quran-cdn.vercel.app/fonts/UthmanicHafs/UthmanicHafs.woff2') format('woff2');
+  font-display: swap;
+}
+
+:root {
+  direction: rtl;
+  --primary-color: #34785C;
+  --primary-hover: #2C6A4F;
+  --primary-light: #F4F9F7;
+  --secondary-color: #B8860B;
+  --bg-color: #FAFAF9;
+}
+
+* {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease;
+}
+
+.font-quran {
+  font-family: 'UthmanicHafs', system-ui, -apple-system, sans-serif;
+}
+
+.quran-text {
+  text-align: justify;
+  line-height: 2.5;
+  font-size: 28px;
+  color: var(--text-primary);
+  padding: 0 2.5rem;
+  text-align-last: right;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0;
+  font-family: 'UthmanicHafs', system-ui, -apple-system, sans-serif !important;
+  word-spacing: 0.1em;
+}
+
+.quran-text.focus-mode-text {
+  font-size: 32px;
+  line-height: 2.8;
+  padding: 2rem 3rem;
+  margin-top: 1rem;
+}
+
+.quran-text.transitioning {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.quran-text div {
+  display: inline;
+}
+
+.quran-text div + div {
+  margin-right: 0.2em;
+}
+
+.verse-number {
+  font-family: 'Traditional Arabic', 'UthmanicHafs', serif;
+  color: var(--secondary-color);
+  font-size: 20px;
+  position: relative;
+  top: -0.5em;
+  margin: 0 0.15em;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+  display: inline-block;
+}
+
+.verse-number:hover {
+  opacity: 1;
+}
+
+.page-number {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.page-number:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(var(--primary-color), 0.2);
+}
+
+.page-number::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.15;
+  transition: opacity 0.3s ease;
+}
+
+.page-number:hover::before {
+  opacity: 0.25;
+}
+
+.navigation-button {
+  @apply h-16 sm:h-24 w-10 sm:w-16 flex items-center justify-center rounded-xl 
+         bg-white/95 shadow-lg backdrop-blur-sm
+         disabled:opacity-50 disabled:cursor-not-allowed
+         transition-all duration-300 relative;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  transform: translateX(0);
+}
+
+.navigation-button:hover:not(:disabled) {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateX(-4px);
+  box-shadow: 0 4px 20px rgba(var(--primary-color), 0.2);
+}
+
+.navigation-button:active:not(:disabled) {
+  transform: translateX(-2px) scale(0.98);
+}
+
+/* Focus mode navigation styles */
+.focus-navigation-button {
+  @apply bg-white/90 backdrop-blur-md;
+  border-width: 3px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.focus-navigation-button:hover:not(:disabled) {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateX(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.navigation-hint {
+  @apply absolute bg-white/95 px-4 py-2 rounded-lg shadow-lg
+         whitespace-nowrap pointer-events-none hidden sm:block
+         transition-all duration-300;
+  color: var(--primary-color);
+  opacity: 0;
+  transform: translateX(20px);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--primary-color);
+}
+
+.navigation-button:hover .navigation-hint {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.quran-border {
+  position: relative;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: white;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.quran-border.focus-mode-border {
+  border-width: 2px;
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  margin: 2rem auto;
+  max-width: calc(100% - 4rem);
+}
+
+.quran-border:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+.quran-border.transitioning {
+  transform: scale(0.98) translateY(4px);
+  opacity: 0.8;
+}
+
+.quran-border::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(var(--primary-color), 0.1);
+  border-radius: 12px;
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+}
+
+.quran-border:hover::before {
+  border-color: rgba(var(--primary-color), 0.15);
+}
+
+.focus-mode {
+  background-color: var(--bg-color);
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.audio-wave {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 16px;
+}
+
+.audio-wave span {
+  display: block;
+  width: 2px;
+  height: 100%;
+  border-radius: 999px;
+  animation: wave 1.2s ease-in-out infinite;
+}
+
+.audio-wave span:nth-child(1) { animation-delay: 0.0s; }
+.audio-wave span:nth-child(2) { animation-delay: 0.1s; }
+.audio-wave span:nth-child(3) { animation-delay: 0.2s; }
+.audio-wave span:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.5); }
+  50% { transform: scaleY(1); }
+}

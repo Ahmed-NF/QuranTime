@@ -1,0 +1,98 @@
+/* Base styles for mobile first approach */
+:root {
+  --font-size-base: 16px;
+  --spacing-base: 1rem;
+}
+
+/* Typography scale */
+.text-scale {
+  font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+}
+
+/* Responsive container */
+.responsive-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-base);
+  padding-right: var(--spacing-base);
+}
+
+/* Mobile devices (320px - 480px) */
+@media screen and (max-width: 480px) {
+  :root {
+    --font-size-base: 14px;
+    --spacing-base: 0.75rem;
+  }
+
+  .quran-text {
+    font-size: 22px !important;
+    line-height: 2.2 !important;
+    padding: 0 1.5rem !important;
+    margin: 0 0.5rem !important;
+  }
+
+  .verse-number {
+    font-size: 16px !important;
+  }
+
+  .navigation-button {
+    @apply w-10 h-16 !important;
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(8px);
+  }
+
+  .navigation-hint {
+    display: none !important;
+  }
+
+  .quran-border {
+    margin-left: 0.75rem !important;
+    margin-right: 0.75rem !important;
+  }
+}
+
+/* Tablet devices (481px - 1024px) */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  :root {
+    --font-size-base: 15px;
+    --spacing-base: 1rem;
+  }
+
+  .quran-text {
+    font-size: 26px !important;
+    line-height: 2.3 !important;
+    padding: 0 2rem !important;
+  }
+}
+
+/* Desktop devices (1025px and above) */
+@media screen and (min-width: 1025px) {
+  .responsive-container {
+    max-width: 1280px;
+  }
+
+  .quran-text {
+    font-size: 28px !important;
+    line-height: 2.5 !important;
+    padding: 0 2.5rem !important;
+  }
+}
+
+/* Responsive images */
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .quran-text {
+    font-size: 18px !important;
+    line-height: 2 !important;
+  }
+}
