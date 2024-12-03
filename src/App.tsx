@@ -18,9 +18,6 @@ import { AnalyticsProvider } from './contexts/AnalyticsContext';
 
 // Initialize analytics when the app loads
 initializeAnalytics();
-app.get('/robots.txt', (req, res) => {
-    res.sendFile(path.join(__dirname, 'robots.txt'));
-});
 
 function App() {
   return (
