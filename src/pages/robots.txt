@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /progress
+Disallow: /settings
+Allow: /browse
+Allow: /surah
+Allow: /quiz
+Allow: /bookmarks
