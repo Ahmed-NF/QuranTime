@@ -5,7 +5,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7579d768-0bfd-4bd5-9c72-c6aa24d71e5b/deploy-status)](https://qurantime.netlify.app)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
 
-[Live Demo](https://qurantime.netlify.app/browse) | [Report Bug](https://github.com/Ahmed-NF/QuranTime/issues) | [Request Feature](https://github.com/Ahmed-NF/QuranTime/issues)
+[Live Demo](https://qurantime.netlify.app) | [Report Bug](https://github.com/Ahmed-NF/QuranTime/issues) | [Request Feature](https://github.com/Ahmed-NF/QuranTime/issues)
 
 ![Quran Time Screenshot](https://i.ibb.co/S3Bb6xy/12-23-2024-10-54-AM.png)
 
